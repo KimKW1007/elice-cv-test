@@ -1,0 +1,150 @@
+@charset "UTF-8";
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+html,body{
+  font-family: "Elice Digital Baeum",sans-serif;
+  background: #f1ebe1;
+  padding: 10px;
+}
+ul,ol{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: #000;
+}
+
+li{
+  position: relative;
+}
+ol li::before{
+  content: counter(num)".";
+  counter-increment: num 1;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#wrap{
+  max-width: 1440px;
+}
+#header{
+  background: rgb(235, 201, 127);
+  padding: 20px 0;
+  border-radius: 10px 10px 0 0;
+}
+#header ul{
+  display: flex;
+  margin-left: 50px;
+}
+#header ul li{
+  margin-right: 40px;
+  text-align: center;
+}
+#header ul li a:hover{
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+
+#main{
+  padding-left: 50px;
+  counter-reset: num;
+}
+h1{
+  line-height: 2.5;
+}
+.profile-head h2{
+  padding: 20px 0;
+}
+.desc{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item{
+  width: 50%;
+  padding: 20px 0;
+}
+.item:not(#item4) li{
+  padding-left: 20px;
+}
+.item:not(#item4) ul li::before{
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  display: block;
+  width: 4px;
+  height: 4px;
+  background: #000;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+.item h3{
+  line-height: 1.5;
+  padding-bottom: 10px;
+}
+#item4 ul{
+  width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #c2b3f7;
+  background: #f3f1fa;
+}
+#item4 ul li{
+  width: 33.3333%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+#item4 ul li a{
+  display: block;
+  background: linear-gradient( 120deg, transparent 50% , rgb(188, 220, 255) 50%);
+  background-size: 230%;
+  transition:  .3s;
+}
+#item4 ul li a:hover{
+  color: #fff;
+  background-position: 100%;
+}
+#footer{
+  padding: 20px 0 20px 50px;
+  background: rgb(95, 95, 95);
+  color: #fff;
+  border-radius: 10px;
+  text-align: center;
+}
+address{
+  font-style: normal;
+}
+
+@media (max-width:860px) {
+  .desc{
+    display: block;
+  }
+  
+.item{
+  width: 100%;
+  padding: 20px 0;
+}
+
+}
+
+@media (max-width:670px) {
+  #header{
+    border-radius: 10px;
+  }
+  #header ul{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+  }
+  #header ul li{
+    padding: 5px 0;
+  }
+}
